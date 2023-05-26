@@ -1,5 +1,12 @@
 <?php
 
+//THEME SUPPORT
+function assessment7theme_setup(){
+    add_theme_support('menus');
+    register_nav_menu('primary', 'Primary Header');
+    register_nav_menu('secondary', 'Footer Navigation');
+}
+
 //LIMITTING LOGIN ATTEMPTS
 function attempted_login($user, $username, $password)
 {
@@ -31,7 +38,7 @@ function login_failed($username)
             set_transient('attempted_login', $datas, 300);
         } else {
             $datas = array(
-                'tried' => 1,
+                'tried' => 1
             );
             set_transient('attempted_login', $datas, 300);
             
